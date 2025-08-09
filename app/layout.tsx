@@ -18,7 +18,6 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Red Thread Publishing - Premium Author Development",
   description: "Transform your expertise into award-winning books with Red Thread Publishing. Complete manuscript-to-market publishing journey for successful entrepreneurs.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

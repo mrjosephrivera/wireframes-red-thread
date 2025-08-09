@@ -30,17 +30,22 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato">
-                  Start Your Book Journey
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato" asChild>
+                  <Link href="/how-we-help">
+                    Discover Our Proven Process
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-gray-400 text-gray-700 px-8 py-4 font-lato bg-transparent"
+                  asChild
                 >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Our Process
+                  <Link href="/get-started">
+                    <Play className="mr-2 h-5 w-5" />
+                    Book a Strategy Call
+                  </Link>
                 </Button>
               </div>
 
@@ -327,10 +332,29 @@ export default function HomePage() {
               Join the ranks of successful entrepreneurs who've built their thought leadership through publishing. Book
               a strategy call today and discover how we can bring your book to life.
             </p>
-            <Button size="lg" className="bg-white text-gray-800 hover:bg-gray-100 px-12 py-4 text-lg font-lato">
-              Book Your Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-gray-800 hover:bg-gray-100 px-12 py-4 text-lg font-lato"
+                asChild
+              >
+                <Link href="/get-started">
+                  Book Your Strategy Call
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-gray-800 px-12 py-4 text-lg font-lato bg-transparent"
+                asChild
+              >
+                <Link href="/our-work/book-catalog">
+                  Browse Our Published Books
+                  <BookOpen className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
             <p className="text-gray-400 text-sm font-lato">
               Free 30-minute consultation • No obligation • Immediate insights
             </p>

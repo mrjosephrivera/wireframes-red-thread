@@ -9,7 +9,7 @@ cd ~/Documents/Dev\ Projects/red-thread-homepage
 
 1️⃣ Sync from v0 (replace URL with your v0 link)
 
-npx shadcn@latest add "https://v0.dev/chat/b/___"
+npx shadcn@latest add "https://v0.app/chat/b/b_1FNax7pBnWJ"
 
 Answer overwrite prompts as needed.
 Let it finish the git commit automatically if it’s configured.

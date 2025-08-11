@@ -1,36 +1,35 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, BookOpen, Users, Clock, Award } from "lucide-react"
-import { WireframeNavigation } from "@/components/wireframe-navigation"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, CheckCircle, Clock, Star, Users, BookOpen, Award } from "lucide-react"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function WriteTogetherPage() {
   return (
     <div className="min-h-screen bg-white">
-      <WireframeNavigation />
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
-                  Step 1: WRITE Together
-                </div>
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-playfair">
-                  Transform Your Expertise Into a Compelling Manuscript
-                </h1>
+                <Badge variant="outline" className="border-gray-400 text-gray-700">
+                  Manuscript Development
+                </Badge>
+                <h1 className="text-5xl font-bold text-gray-900 leading-tight font-playfair">WRITE Together</h1>
                 <p className="text-xl text-gray-600 leading-relaxed font-lato">
-                  Our manuscript development and coaching program helps you organize your knowledge, find your unique
-                  voice, and create content that resonates with your target audience.
+                  Transform your expertise into a compelling manuscript with our comprehensive writing and coaching
+                  program. From concept to completed draft, we guide you through every step of the writing process.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato" asChild>
                   <Link href="/get-started">
-                    Start Your Manuscript Journey
+                    Start Writing Today
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -46,7 +45,7 @@ export default function WriteTogetherPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
+              <div className="aspect-video bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
                 <div className="text-gray-600 font-lato">Writing Process Image</div>
               </div>
             </div>
@@ -55,294 +54,208 @@ export default function WriteTogetherPage() {
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-white border-t border-gray-200">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">What's Included in WRITE Together</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">What's Included</h2>
             <p className="text-xl text-gray-600 font-lato">
-              Comprehensive support to take you from idea to finished manuscript
+              Comprehensive manuscript development from concept to completion
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <BookOpen className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <BookOpen className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Book Concept Development
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Target audience identification</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Unique angle positioning</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Competitive analysis</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Book title and subtitle development</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Book Concept Development</h3>
+                <p className="text-gray-600 font-lato">
+                  Strategic planning sessions to define your book's core message, target audience, and unique value
+                  proposition.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Users className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Users className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  1-on-1 Coaching Sessions
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Weekly 60-minute sessions</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Personalized writing guidance</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Accountability and motivation</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Real-time feedback and direction</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">1:1 Writing Coaching</h3>
+                <p className="text-gray-600 font-lato">
+                  Weekly coaching sessions with experienced writing professionals to guide your manuscript development.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Award className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <CheckCircle className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Manuscript Structure & Outline
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Detailed chapter outlines</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Content flow optimization</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Story arc development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Key message reinforcement</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Chapter-by-Chapter Review</h3>
+                <p className="text-gray-600 font-lato">
+                  Detailed feedback and editing suggestions for each chapter as you progress through your manuscript.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Clock className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Award className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Writing Process & Timeline
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Customized writing schedule</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Milestone tracking and deadlines</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Progress reviews and adjustments</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Final manuscript preparation</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Content Strategy</h3>
+                <p className="text-gray-600 font-lato">
+                  Strategic guidance on structuring your content for maximum impact and reader engagement.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <BookOpen className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Clock className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Content Development Tools
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Writing templates and frameworks</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Research and citation guidance</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Case study development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Voice and tone refinement</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Writing Accountability</h3>
+                <p className="text-gray-600 font-lato">
+                  Regular check-ins and milestone tracking to keep you on schedule and motivated throughout the process.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Users className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Users className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">Community & Support</h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Access to author community</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Peer feedback and support</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Monthly group workshops</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>24/7 email support</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Author Community Access</h3>
+                <p className="text-gray-600 font-lato">
+                  Exclusive access to our community of authors for support, networking, and collaboration opportunities.
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Process Timeline */}
+      {/* Timeline */}
       <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Your Writing Journey Timeline</h2>
-            <p className="text-xl text-gray-600 font-lato">A structured 12-week program to complete your manuscript</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Your Writing Journey</h2>
+            <p className="text-xl text-gray-600 font-lato">A structured 6-month process to complete your manuscript</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              {[
-                {
-                  week: "Weeks 1-2",
-                  title: "Foundation & Strategy",
-                  description:
-                    "Book concept refinement, target audience analysis, competitive positioning, and detailed outline creation.",
-                },
-                {
-                  week: "Weeks 3-6",
-                  title: "Core Content Development",
-                  description:
-                    "Writing the main chapters with weekly coaching sessions, content reviews, and structure optimization.",
-                },
-                {
-                  week: "Weeks 7-10",
-                  title: "Content Expansion & Refinement",
-                  description:
-                    "Adding case studies, examples, and supporting content while refining voice and message clarity.",
-                },
-                {
-                  week: "Weeks 11-12",
-                  title: "Manuscript Completion",
-                  description:
-                    "Final content review, manuscript polishing, and preparation for the editing and publishing phase.",
-                },
-              ].map((phase, i) => (
-                <div key={i} className="flex items-start space-x-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 bg-gray-200 rounded-full border-2 border-gray-400 flex items-center justify-center">
-                      <span className="text-sm font-bold text-gray-700 font-lato text-center">{phase.week}</span>
-                    </div>
-                  </div>
-                  <div className="flex-1 pt-2">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 font-playfair">{phase.title}</h3>
-                    <p className="text-gray-600 font-lato">{phase.description}</p>
-                  </div>
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  1
                 </div>
-              ))}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 1-2: Foundation & Planning
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Book concept development, audience research, detailed outline creation, and writing strategy
+                    development.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  2
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 3-4: Active Writing Phase
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Intensive writing sessions with weekly coaching, chapter reviews, and continuous feedback to
+                    maintain momentum.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  3
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 5-6: Refinement & Completion
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Manuscript refinement, final edits, and preparation for the publishing phase with comprehensive
+                    review.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Investment Section */}
       <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">WRITE Together Investment</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Investment</h2>
             <p className="text-xl text-gray-600 font-lato">
-              Professional manuscript development that transforms your expertise into compelling content
+              Professional manuscript development with expert guidance and support
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <Card className="border-2 border-gray-800 bg-gray-50">
+            <Card className="border-2 border-gray-300 bg-gray-50">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-playfair">WRITE Together Package</h3>
-                <div className="text-5xl font-bold text-gray-800 mb-2 font-playfair">$12,500</div>
-                <div className="text-gray-600 mb-8 font-lato">Complete 12-week manuscript development program</div>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-4xl font-bold text-gray-800 mb-2 font-playfair">$15,000 - $25,000</div>
+                    <div className="text-gray-600 font-lato">Complete WRITE Together Program</div>
+                  </div>
 
-                <div className="space-y-4 mb-8 text-left">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">12 weekly 1-on-1 coaching sessions</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">6-Month Program Duration</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">Weekly 1:1 Coaching Sessions</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">Complete Manuscript Development</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                      <span className="font-lato text-gray-700">Author Community Access</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Complete book concept and outline development</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Manuscript structure and content guidance</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Access to author community and resources</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Completed manuscript ready for editing</span>
-                  </div>
-                </div>
 
-                <div className="space-y-4">
-                  <Button size="lg" className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 font-lato" asChild>
+                  <div className="pt-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-white rounded border">
+                        <div className="font-semibold text-gray-800 font-lato">Pay in Full</div>
+                        <div className="text-sm text-gray-600 font-lato">5% discount applied</div>
+                      </div>
+                      <div className="text-center p-4 bg-white rounded border">
+                        <div className="font-semibold text-gray-800 font-lato">3-Month Plan</div>
+                        <div className="text-sm text-gray-600 font-lato">0% interest</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button size="lg" className="w-full bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
                     <Link href="/get-started">
-                      Start Your Manuscript Journey
+                      Start Your Writing Journey
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <p className="text-sm text-gray-500 font-lato">
-                    Payment plans available • 30-day money-back guarantee
-                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -350,14 +263,154 @@ export default function WriteTogetherPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* What Authors Say */}
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">What Authors Say</h2>
+            <p className="text-xl text-gray-600 font-lato">
+              Success stories from entrepreneurs who completed our WRITE Together program
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "The WRITE Together program transformed my scattered ideas into a cohesive, compelling manuscript. The
+                  weekly coaching kept me accountable and the feedback was invaluable."
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Sarah Chen</div>
+                    <div className="text-gray-600 text-sm font-lato">Tech Entrepreneur</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "I had been trying to write my book for years. The structured approach and expert guidance helped me
+                  complete my manuscript in just 6 months. Incredible program!"
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Michael Rodriguez</div>
+                    <div className="text-gray-600 text-sm font-lato">Business Consultant</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "The chapter-by-chapter review process ensured my content was always on track. My manuscript is now
+                  ready for publishing and I couldn't be more proud of the result."
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Jennifer Walsh</div>
+                    <div className="text-gray-600 text-sm font-lato">Healthcare Executive</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600 font-lato">Common questions about our WRITE Together program</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-8">
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  What if I've never written a book before?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  Our program is specifically designed for first-time authors. We provide comprehensive guidance from
+                  concept to completion, ensuring you have all the support needed to succeed regardless of your writing
+                  experience.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  How much time do I need to commit each week?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  We recommend 8-10 hours per week for writing and program activities. This includes your weekly
+                  coaching session, writing time, and review of feedback. The schedule is flexible to accommodate your
+                  business commitments.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  What happens after I complete my manuscript?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  Upon completion, you'll have a polished manuscript ready for our PUBLISH with Confidence program. We
+                  can seamlessly transition you to the publishing phase or you can choose to work with other publishers.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  Do you provide ghostwriting services?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  No, our focus is on coaching you to write your own book. We believe your authentic voice and
+                  perspective are what make your book valuable. We guide and support you throughout the writing process
+                  while ensuring the work remains genuinely yours.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-20 bg-gray-800 border-t border-gray-700">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl font-bold text-white font-playfair">Ready to Write Your Book?</h2>
+            <h2 className="text-4xl font-bold text-white font-playfair">Ready to Start Writing Your Book?</h2>
             <p className="text-xl text-gray-300 font-lato">
-              Transform your expertise into a compelling manuscript with our proven WRITE Together program. Book your
-              strategy call to get started today.
+              Join our WRITE Together program and transform your expertise into a compelling manuscript with expert
+              guidance and support every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -366,7 +419,7 @@ export default function WriteTogetherPage() {
                 asChild
               >
                 <Link href="/get-started">
-                  Book Your Strategy Call
+                  Start Your Writing Journey
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -376,15 +429,10 @@ export default function WriteTogetherPage() {
                 className="border-white text-white hover:bg-white hover:text-gray-800 px-12 py-4 text-lg font-lato bg-transparent"
                 asChild
               >
-                <Link href="/how-we-help/publish-with-confidence">
-                  See Publishing Options
-                  <BookOpen className="ml-2 h-5 w-5" />
-                </Link>
+                <Link href="/pricing/packages">View All Packages</Link>
               </Button>
             </div>
-            <p className="text-gray-400 text-sm font-lato">
-              Free 30-minute consultation • No obligation • Immediate insights
-            </p>
+            <p className="text-gray-400 text-sm font-lato">Free consultation • Custom approach • 6-month program</p>
           </div>
         </div>
       </section>
@@ -431,8 +479,13 @@ export default function WriteTogetherPage() {
               <h4 className="font-semibold mb-4 font-lato">Resources</h4>
               <ul className="space-y-2 text-gray-400 font-lato">
                 <li>
+                  <Link href="/resources/ebook" className="hover:text-white font-lato">
+                    Free eBook
+                  </Link>
+                </li>
+                <li>
                   <Link href="/resources/webinar-series" className="hover:text-white font-lato">
-                    Free Webinar
+                    Webinar Series
                   </Link>
                 </li>
                 <li>
@@ -441,13 +494,8 @@ export default function WriteTogetherPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources/ebook" className="hover:text-white font-lato">
-                    Publishing Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/our-work/testimonials" className="hover:text-white font-lato">
-                    Success Stories
+                  <Link href="/resources/blog" className="hover:text-white font-lato">
+                    Blog
                   </Link>
                 </li>
               </ul>
@@ -458,7 +506,11 @@ export default function WriteTogetherPage() {
               <ul className="space-y-2 text-gray-400 font-lato">
                 <li>hello@redthreadpublishing.com</li>
                 <li>(555) 123-4567</li>
-                <li>Book a Strategy Call</li>
+                <li>
+                  <Link href="/get-started" className="hover:text-white font-lato">
+                    Book a Strategy Call
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

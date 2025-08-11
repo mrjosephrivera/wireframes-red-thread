@@ -2,339 +2,320 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
 
 export function WireframeNavigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
+  const toggleDropdown = (dropdown: string) => {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
+  }
+
   return (
-    <header className="border-b-2 border-gray-300 bg-white sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <header className="bg-white border-b-2 border-gray-300 sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="h-8 w-8 bg-gray-400 rounded border-2 border-gray-500"></div>
-            <span className="text-xl font-bold text-gray-900 font-playfair">Red Thread Publishing</span>
+            <span className="text-xl font-bold text-gray-900 font-lato">Red Thread Publishing</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <div className="flex items-center space-x-6">
-              {/* How We Help */}
-              <div className="relative group">
-                <button className="font-lato text-gray-700 hover:text-gray-900 flex items-center">
-                  How We Help
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-96 bg-white border-2 border-gray-300 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-3">
-                        <h4 className="font-semibold font-playfair text-gray-900 border-b border-gray-200 pb-2">
-                          Our Services
-                        </h4>
-                        <Link
-                          href="/how-we-help/write-together"
-                          className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                        >
-                          <div className="font-semibold font-lato text-gray-800">WRITE Together</div>
-                          <div className="text-sm text-gray-600 font-lato">Manuscript development</div>
-                        </Link>
-                        <Link
-                          href="/how-we-help/publish-with-confidence"
-                          className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                        >
-                          <div className="font-semibold font-lato text-gray-800">PUBLISH with Confidence</div>
-                          <div className="text-sm text-gray-600 font-lato">Full-service publishing</div>
-                        </Link>
-                        <Link
-                          href="/how-we-help/grow-your-impact"
-                          className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                        >
-                          <div className="font-semibold font-lato text-gray-800">Grow your IMPACT</div>
-                          <div className="text-sm text-gray-600 font-lato">Media training</div>
-                        </Link>
-                      </div>
-                      <div className="space-y-3">
-                        <h4 className="font-semibold font-playfair text-gray-900 border-b border-gray-200 pb-2">
-                          Pricing
-                        </h4>
-                        <Link
-                          href="/pricing/packages"
-                          className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                        >
-                          <div className="font-semibold font-lato text-gray-800">Individual Packages</div>
-                          <div className="text-sm text-gray-600 font-lato">Write, Publish, or Impact</div>
-                        </Link>
-                        <Link
-                          href="/pricing/all-in-package"
-                          className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                        >
-                          <div className="font-semibold font-lato text-gray-800">All-in Package</div>
-                          <div className="text-sm text-gray-600 font-lato">Complete journey</div>
-                        </Link>
-                      </div>
-                    </div>
+          <nav className="hidden lg:flex items-center space-x-8">
+            {/* How We Help Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("help")}
+                className="flex items-center text-gray-700 hover:text-gray-900 font-lato"
+              >
+                How We Help
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {activeDropdown === "help" && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white border-2 border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="p-4 space-y-2">
+                    <Link
+                      href="/how-we-help/write-together"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      WRITE Together
+                    </Link>
+                    <Link
+                      href="/how-we-help/publish-with-confidence"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      PUBLISH with Confidence
+                    </Link>
+                    <Link
+                      href="/how-we-help/grow-your-impact"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Grow Your IMPACT
+                    </Link>
                   </div>
                 </div>
-              </div>
+              )}
+            </div>
 
-              {/* Our Work */}
-              <div className="relative group">
-                <button className="font-lato text-gray-700 hover:text-gray-900 flex items-center">
-                  Our Work
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white border-2 border-gray-300 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-6 space-y-3">
-                    <Link
-                      href="/our-work/published-authors"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                    >
-                      <div className="font-semibold font-lato text-gray-800">Published Authors</div>
-                      <div className="text-sm text-gray-600 font-lato">Meet our authors</div>
-                    </Link>
+            {/* Our Work Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("work")}
+                className="flex items-center text-gray-700 hover:text-gray-900 font-lato"
+              >
+                Our Work
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {activeDropdown === "work" && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white border-2 border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="p-4 space-y-2">
                     <Link
                       href="/our-work/book-catalog"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="font-semibold font-lato text-gray-800">Book Catalog</div>
-                      <div className="text-sm text-gray-600 font-lato">Browse published books</div>
-                    </Link>
-                    <Link href="/our-work/awards" className="block p-3 border border-gray-200 rounded hover:bg-gray-50">
-                      <div className="font-semibold font-lato text-gray-800">Awards</div>
-                      <div className="text-sm text-gray-600 font-lato">Recognition</div>
+                      Book Catalog
                     </Link>
                     <Link
-                      href="/our-work/testimonials"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
+                      href="/our-work/success-stories"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="font-semibold font-lato text-gray-800">Testimonials</div>
-                      <div className="text-sm text-gray-600 font-lato">Client feedback</div>
+                      Success Stories
+                    </Link>
+                    <Link
+                      href="/our-work/awards-recognition"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Awards & Recognition
                     </Link>
                   </div>
                 </div>
-              </div>
+              )}
+            </div>
 
-              {/* Resources */}
-              <div className="relative group">
-                <button className="font-lato text-gray-700 hover:text-gray-900 flex items-center">
-                  Resources
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white border-2 border-gray-300 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-6 space-y-3">
-                    <Link href="/resources/ebook" className="block p-3 border border-gray-200 rounded hover:bg-gray-50">
-                      <div className="font-semibold font-lato text-gray-800">Download eBook</div>
-                      <div className="text-sm text-gray-600 font-lato">Free guide</div>
-                    </Link>
+            {/* About Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("about")}
+                className="flex items-center text-gray-700 hover:text-gray-900 font-lato"
+              >
+                About
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {activeDropdown === "about" && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white border-2 border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="p-4 space-y-2">
                     <Link
-                      href="/resources/webinar-series"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
+                      href="/about/our-story"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="font-semibold font-lato text-gray-800">Webinar Series</div>
-                      <div className="text-sm text-gray-600 font-lato">Training sessions</div>
-                    </Link>
-                    <Link
-                      href="/resources/community"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                    >
-                      <div className="font-semibold font-lato text-gray-800">Community</div>
-                      <div className="text-sm text-gray-600 font-lato">Join authors</div>
-                    </Link>
-                    <Link
-                      href="/resources/newsletter"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
-                    >
-                      <div className="font-semibold font-lato text-gray-800">Newsletter</div>
-                      <div className="text-sm text-gray-600 font-lato">Weekly insights</div>
-                    </Link>
-                    <Link href="/resources/blog" className="block p-3 border border-gray-200 rounded hover:bg-gray-50">
-                      <div className="font-semibold font-lato text-gray-800">Blog</div>
-                      <div className="text-sm text-gray-600 font-lato">Articles & tips</div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* About Red Thread */}
-              <div className="relative group">
-                <button className="font-lato text-gray-700 hover:text-gray-900 flex items-center">
-                  About Red Thread
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white border-2 border-gray-300 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-6 space-y-3">
-                    <Link href="/about/our-story" className="block p-3 border border-gray-200 rounded hover:bg-gray-50">
-                      <div className="font-semibold font-lato text-gray-800">Our Story</div>
-                      <div className="text-sm text-gray-600 font-lato">Mission & values</div>
+                      Our Story
                     </Link>
                     <Link
                       href="/about/meet-the-team"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="font-semibold font-lato text-gray-800">Meet the Team</div>
-                      <div className="text-sm text-gray-600 font-lato">Our experts</div>
+                      Meet the Team
                     </Link>
                     <Link
                       href="/about/why-red-thread"
-                      className="block p-3 border border-gray-200 rounded hover:bg-gray-50"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
                     >
-                      <div className="font-semibold font-lato text-gray-800">Why Red Thread</div>
-                      <div className="text-sm text-gray-600 font-lato">What makes us different</div>
+                      Why Red Thread
+                    </Link>
+                    <Link
+                      href="/about/in-the-media"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      In the Media
                     </Link>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            <Button className="bg-gray-800 hover:bg-gray-900 text-white border-2 border-gray-700 font-lato" asChild>
+            {/* Resources Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown("resources")}
+                className="flex items-center text-gray-700 hover:text-gray-900 font-lato"
+              >
+                Resources
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {activeDropdown === "resources" && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white border-2 border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="p-4 space-y-2">
+                    <Link
+                      href="/resources/blog"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Blog
+                    </Link>
+                    <Link
+                      href="/resources/webinar-series"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Webinar Series
+                    </Link>
+                    <Link
+                      href="/resources/ebook"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Free eBook
+                    </Link>
+                    <Link
+                      href="/resources/community"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Community
+                    </Link>
+                    <Link
+                      href="/resources/newsletter"
+                      className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded font-lato"
+                      onClick={() => setActiveDropdown(null)}
+                    >
+                      Newsletter
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Single Pricing Link */}
+            <Link href="/pricing/packages" className="text-gray-700 hover:text-gray-900 font-lato">
+              Pricing
+            </Link>
+          </nav>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
               <Link href="/get-started">Get Started</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 border border-gray-400 rounded"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {/* Mobile Menu Button */}
+          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 text-gray-700 hover:text-gray-900">
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t-2 border-gray-300">
-            <div className="space-y-4 pt-4">
-              <div className="space-y-2 p-4 border border-gray-300 rounded">
-                <div className="font-semibold font-playfair text-gray-900">How We Help</div>
-                <div className="pl-4 space-y-2">
-                  <Link
-                    href="/how-we-help/write-together"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    WRITE Together
-                  </Link>
-                  <Link
-                    href="/how-we-help/publish-with-confidence"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    PUBLISH with Confidence
-                  </Link>
-                  <Link
-                    href="/how-we-help/grow-your-impact"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Grow your IMPACT
-                  </Link>
-                  <Link
-                    href="/pricing/packages"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Pricing
-                  </Link>
-                </div>
+        {isOpen && (
+          <div className="lg:hidden border-t-2 border-gray-300 py-4">
+            <nav className="space-y-4">
+              <div className="space-y-2">
+                <div className="font-semibold text-gray-900 font-lato">How We Help</div>
+                <Link
+                  href="/how-we-help/write-together"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  WRITE Together
+                </Link>
+                <Link
+                  href="/how-we-help/publish-with-confidence"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  PUBLISH with Confidence
+                </Link>
+                <Link
+                  href="/how-we-help/grow-your-impact"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Grow Your IMPACT
+                </Link>
               </div>
 
-              <div className="space-y-2 p-4 border border-gray-300 rounded">
-                <div className="font-semibold font-playfair text-gray-900">Our Work</div>
-                <div className="pl-4 space-y-2">
-                  <Link
-                    href="/our-work/published-authors"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Published Authors
-                  </Link>
-                  <Link
-                    href="/our-work/book-catalog"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Book Catalog
-                  </Link>
-                  <Link
-                    href="/our-work/awards"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Awards
-                  </Link>
-                  <Link
-                    href="/our-work/testimonials"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Testimonials
-                  </Link>
-                </div>
+              <div className="space-y-2">
+                <div className="font-semibold text-gray-900 font-lato">Our Work</div>
+                <Link
+                  href="/our-work/book-catalog"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Book Catalog
+                </Link>
+                <Link
+                  href="/our-work/success-stories"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Success Stories
+                </Link>
               </div>
 
-              <div className="space-y-2 p-4 border border-gray-300 rounded">
-                <div className="font-semibold font-playfair text-gray-900">Resources</div>
-                <div className="pl-4 space-y-2">
-                  <Link
-                    href="/resources/ebook"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Download eBook
-                  </Link>
-                  <Link
-                    href="/resources/webinar-series"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Webinar Series
-                  </Link>
-                  <Link
-                    href="/resources/community"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Community
-                  </Link>
-                  <Link
-                    href="/resources/newsletter"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Newsletter
-                  </Link>
-                  <Link
-                    href="/resources/blog"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Blog
-                  </Link>
-                </div>
+              <div className="space-y-2">
+                <div className="font-semibold text-gray-900 font-lato">About</div>
+                <Link
+                  href="/about/our-story"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Our Story
+                </Link>
+                <Link
+                  href="/about/meet-the-team"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Meet the Team
+                </Link>
               </div>
 
-              <div className="space-y-2 p-4 border border-gray-300 rounded">
-                <div className="font-semibold font-playfair text-gray-900">About Red Thread</div>
-                <div className="pl-4 space-y-2">
-                  <Link
-                    href="/about/our-story"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Our Story
-                  </Link>
-                  <Link
-                    href="/about/meet-the-team"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Meet the Team
-                  </Link>
-                  <Link
-                    href="/about/why-red-thread"
-                    className="block text-gray-600 font-lato py-1 border-l-2 border-gray-300 pl-3"
-                  >
-                    Why Red Thread
-                  </Link>
-                </div>
+              <div className="space-y-2">
+                <div className="font-semibold text-gray-900 font-lato">Resources</div>
+                <Link
+                  href="/resources/blog"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="/resources/webinar-series"
+                  className="block pl-4 py-2 text-gray-700 hover:text-gray-900 font-lato"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Webinar Series
+                </Link>
               </div>
 
-              <Button
-                className="w-full bg-gray-800 hover:bg-gray-900 text-white border-2 border-gray-700 font-lato"
-                asChild
+              <Link
+                href="/pricing/packages"
+                className="block py-2 text-gray-700 hover:text-gray-900 font-semibold font-lato"
+                onClick={() => setIsOpen(false)}
               >
-                <Link href="/get-started">Get Started</Link>
-              </Button>
-            </div>
+                Pricing
+              </Link>
+
+              <div className="pt-4">
+                <Button className="w-full bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
+                  <Link href="/get-started" onClick={() => setIsOpen(false)}>
+                    Get Started
+                  </Link>
+                </Button>
+              </div>
+            </nav>
           </div>
         )}
       </div>

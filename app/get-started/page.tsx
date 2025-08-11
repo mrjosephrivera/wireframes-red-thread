@@ -1,15 +1,18 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Calendar, Clock, Award, Users } from "lucide-react"
-import { WireframeNavigation } from "@/components/wireframe-navigation"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
+import { ArrowRight, CheckCircle, Star, Clock, Users, Award } from "lucide-react"
+import { Navigation } from "@/components/navigation"
 import Link from "next/link"
 
 export default function GetStartedPage() {
   return (
     <div className="min-h-screen bg-white">
-      <WireframeNavigation />
+      <Navigation />
 
       {/* Hero Section */}
       <section className="py-20 bg-gray-50 border-t border-gray-200">
@@ -19,421 +22,508 @@ export default function GetStartedPage() {
               Book Your Free Strategy Call
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed font-lato mb-8">
-              Discover how to transform your expertise into a published book that establishes your thought leadership
-              and grows your business. Get personalized guidance from our publishing experts.
+              Let's discuss your book goals, timeline, and how Red Thread Publishing can help you achieve thought
+              leadership through professional publishing. No obligation, just expert guidance.
             </p>
-
-            <div className="flex items-center justify-center space-x-8 mb-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 font-playfair">30 min</div>
-                <div className="text-gray-600 font-lato">Free Consultation</div>
+            <div className="flex items-center justify-center space-x-8 text-gray-600 font-lato">
+              <div className="flex items-center space-x-2">
+                <Clock className="h-5 w-5" />
+                <span>30 minutes</span>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 font-playfair">No</div>
-                <div className="text-gray-600 font-lato">Obligation</div>
+              <div className="flex items-center space-x-2">
+                <Users className="h-5 w-5" />
+                <span>1-on-1 with Sierra</span>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-800 font-playfair">Expert</div>
-                <div className="text-gray-600 font-lato">Guidance</div>
+              <div className="flex items-center space-x-2">
+                <Award className="h-5 w-5" />
+                <span>Immediate insights</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What You'll Get */}
+      {/* Main Content */}
       <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">What You'll Get on Your Call</h2>
-            <p className="text-xl text-gray-600 font-lato">
-              A comprehensive consultation designed to give you clarity and direction
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-2 border-gray-300 text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Award className="h-8 w-8 text-gray-600" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 font-playfair">Book Concept Review</h3>
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Form */}
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Tell Us About Your Project</h2>
                 <p className="text-gray-600 font-lato">
-                  We'll evaluate your book idea and help you refine your unique angle and positioning
+                  Help us understand your goals so we can provide the most valuable guidance during your strategy call.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card className="border-2 border-gray-300 text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Users className="h-8 w-8 text-gray-600" />
+              <form className="space-y-8">
+                {/* Personal Information */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Personal Information</h3>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="firstName" className="font-lato">
+                        First Name *
+                      </Label>
+                      <Input id="firstName" className="mt-1 border-gray-300" required />
+                    </div>
+                    <div>
+                      <Label htmlFor="lastName" className="font-lato">
+                        Last Name *
+                      </Label>
+                      <Input id="lastName" className="mt-1 border-gray-300" required />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="email" className="font-lato">
+                      Email Address *
+                    </Label>
+                    <Input id="email" type="email" className="mt-1 border-gray-300" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone" className="font-lato">
+                      Phone Number *
+                    </Label>
+                    <Input id="phone" type="tel" className="mt-1 border-gray-300" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="company" className="font-lato">
+                      Company/Organization
+                    </Label>
+                    <Input id="company" className="mt-1 border-gray-300" />
+                  </div>
+                  <div>
+                    <Label htmlFor="title" className="font-lato">
+                      Your Title/Role
+                    </Label>
+                    <Input id="title" className="mt-1 border-gray-300" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 font-playfair">Target Audience Analysis</h3>
-                <p className="text-gray-600 font-lato">
-                  Identify your ideal readers and how to position your book to reach them effectively
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-2 border-gray-300 text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Calendar className="h-8 w-8 text-gray-600" />
+                {/* Book Information */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">About Your Book</h3>
+                  <div>
+                    <Label htmlFor="bookStage" className="font-lato">
+                      What stage is your book project? *
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="Select current stage" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="idea">Just an idea - need help developing concept</SelectItem>
+                        <SelectItem value="outline">Have an outline or partial content</SelectItem>
+                        <SelectItem value="draft">First draft completed</SelectItem>
+                        <SelectItem value="manuscript">Completed manuscript ready for editing</SelectItem>
+                        <SelectItem value="published">Already published, looking for impact services</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="bookTopic" className="font-lato">
+                      Book Topic/Subject Area *
+                    </Label>
+                    <Input
+                      id="bookTopic"
+                      placeholder="e.g., Leadership, Marketing, Personal Development"
+                      className="mt-1 border-gray-300"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="bookDescription" className="font-lato">
+                      Brief Book Description
+                    </Label>
+                    <Textarea
+                      id="bookDescription"
+                      placeholder="Tell us about your book concept, main message, or key themes..."
+                      className="mt-1 border-gray-300"
+                      rows={4}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="targetAudience" className="font-lato">
+                      Target Audience *
+                    </Label>
+                    <Input
+                      id="targetAudience"
+                      placeholder="e.g., Business executives, entrepreneurs, HR professionals"
+                      className="mt-1 border-gray-300"
+                      required
+                    />
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 font-playfair">Custom Timeline</h3>
-                <p className="text-gray-600 font-lato">
-                  Get a personalized publishing timeline based on your goals and availability
-                </p>
-              </CardContent>
-            </Card>
 
-            <Card className="border-2 border-gray-300 text-center">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <CheckCircle className="h-8 w-8 text-gray-600" />
+                {/* Business Goals */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Business Goals</h3>
+                  <div>
+                    <Label className="font-lato">
+                      What do you hope to achieve with your book? (Select all that apply)
+                    </Label>
+                    <div className="mt-3 space-y-3">
+                      {[
+                        "Establish thought leadership in my industry",
+                        "Generate leads for my business",
+                        "Increase speaking opportunities",
+                        "Build credibility and authority",
+                        "Launch a new business or service",
+                        "Share knowledge and help others",
+                        "Personal legacy and achievement",
+                      ].map((goal) => (
+                        <div key={goal} className="flex items-center space-x-2">
+                          <Checkbox id={goal} />
+                          <Label htmlFor={goal} className="text-sm font-lato">
+                            {goal}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="timeline" className="font-lato">
+                      Desired Timeline *
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="When would you like to publish?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="asap">As soon as possible</SelectItem>
+                        <SelectItem value="3months">Within 3 months</SelectItem>
+                        <SelectItem value="6months">Within 6 months</SelectItem>
+                        <SelectItem value="year">Within a year</SelectItem>
+                        <SelectItem value="flexible">Flexible timeline</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 font-playfair">Next Steps Plan</h3>
-                <p className="text-gray-600 font-lato">
-                  Leave with a clear action plan, whether you work with us or pursue other options
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
-      {/* Booking Form */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Schedule Your Strategy Call</h2>
-              <p className="text-xl text-gray-600 font-lato">
-                Fill out the form below and we'll contact you within 24 hours to schedule your call
-              </p>
+                {/* Budget and Experience */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Investment & Experience</h3>
+                  <div>
+                    <Label htmlFor="budget" className="font-lato">
+                      Investment Range You're Considering *
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="Select budget range" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="under10k">Under $10,000</SelectItem>
+                        <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
+                        <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
+                        <SelectItem value="50k-plus">$50,000+</SelectItem>
+                        <SelectItem value="unsure">Not sure yet</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="experience" className="font-lato">
+                      Previous Writing/Publishing Experience
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="Select your experience level" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="none">No previous experience</SelectItem>
+                        <SelectItem value="articles">Written articles/blog posts</SelectItem>
+                        <SelectItem value="ebook">Published eBooks or guides</SelectItem>
+                        <SelectItem value="selfpub">Self-published books</SelectItem>
+                        <SelectItem value="tradpub">Traditionally published</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Services Interest */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Services of Interest</h3>
+                  <div>
+                    <Label className="font-lato">
+                      Which services are you most interested in? (Select all that apply)
+                    </Label>
+                    <div className="mt-3 space-y-3">
+                      {[
+                        "WRITE Together - Manuscript Development ($8,500 - $15,000)",
+                        "PUBLISH with Confidence - Full Publishing Service ($15,000 - $25,000)",
+                        "Grow Your IMPACT - Thought Leadership Program ($18,000 - $30,000)",
+                        "Complete Author Journey - All Services ($45,000 with savings)",
+                        "Not sure - need guidance",
+                      ].map((service) => (
+                        <div key={service} className="flex items-center space-x-2">
+                          <Checkbox id={service} />
+                          <Label htmlFor={service} className="text-sm font-lato">
+                            {service}
+                          </Label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Scheduling */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Scheduling Preferences</h3>
+                  <div>
+                    <Label htmlFor="availability" className="font-lato">
+                      Best times for your strategy call
+                    </Label>
+                    <Textarea
+                      id="availability"
+                      placeholder="e.g., Weekday mornings, Tuesday/Thursday afternoons, etc."
+                      className="mt-1 border-gray-300"
+                      rows={3}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="timezone" className="font-lato">
+                      Time Zone
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="Select your time zone" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="pst">Pacific (PST/PDT)</SelectItem>
+                        <SelectItem value="mst">Mountain (MST/MDT)</SelectItem>
+                        <SelectItem value="cst">Central (CST/CDT)</SelectItem>
+                        <SelectItem value="est">Eastern (EST/EDT)</SelectItem>
+                        <SelectItem value="other">Other (please specify in comments)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 font-playfair">Additional Information</h3>
+                  <div>
+                    <Label htmlFor="questions" className="font-lato">
+                      Questions or Additional Details
+                    </Label>
+                    <Textarea
+                      id="questions"
+                      placeholder="Any specific questions, concerns, or additional information you'd like to share..."
+                      className="mt-1 border-gray-300"
+                      rows={4}
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="referral" className="font-lato">
+                      How did you hear about Red Thread Publishing?
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="mt-1 border-gray-300">
+                        <SelectValue placeholder="Select referral source" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="google">Google search</SelectItem>
+                        <SelectItem value="social">Social media</SelectItem>
+                        <SelectItem value="referral">Referral from friend/colleague</SelectItem>
+                        <SelectItem value="podcast">Podcast or interview</SelectItem>
+                        <SelectItem value="event">Conference or event</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                {/* Submit */}
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox id="consent" required />
+                    <Label htmlFor="consent" className="text-sm font-lato">
+                      I agree to receive communications from Red Thread Publishing about my project and relevant
+                      services. *
+                    </Label>
+                  </div>
+                  <Button size="lg" className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 font-lato">
+                    Book My Free Strategy Call
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <p className="text-sm text-gray-500 text-center font-lato">
+                    We'll review your information and contact you within 24 hours to schedule your call.
+                  </p>
+                </div>
+              </form>
             </div>
 
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  {/* Personal Information */}
+            {/* Sidebar */}
+            <div className="space-y-8">
+              {/* What to Expect */}
+              <Card className="border-2 border-gray-300">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-6 font-playfair">What to Expect on Your Call</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-gray-900 font-lato">Goal Assessment</div>
+                        <div className="text-gray-600 text-sm font-lato">
+                          We'll discuss your book goals and how they align with your business objectives
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-gray-900 font-lato">Custom Strategy</div>
+                        <div className="text-gray-600 text-sm font-lato">
+                          Receive a personalized roadmap for your author journey
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-gray-900 font-lato">Service Recommendations</div>
+                        <div className="text-gray-600 text-sm font-lato">
+                          Learn which services best fit your timeline and budget
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-gray-900 font-lato">Next Steps</div>
+                        <div className="text-gray-600 text-sm font-lato">
+                          Clear action plan whether you work with us or not
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Testimonials */}
+              <Card className="border-2 border-gray-300">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-6 font-playfair">Recent Success Stories</h3>
                   <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Personal Information</h3>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">First Name *</label>
-                        <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">Last Name *</label>
-                        <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                          Email Address *
-                        </label>
-                        <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">Phone Number *</label>
-                        <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                      </div>
-                    </div>
-
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        Company/Business Name
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                    </div>
-                  </div>
-
-                  {/* Book Information */}
-                  <div className="space-y-6 pt-6 border-t border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">About Your Book</h3>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What stage are you at with your book? *
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded flex items-center px-4">
-                        <span className="text-gray-500 font-lato">Select your current stage...</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What's your book topic/area of expertise? *
-                      </label>
-                      <div className="h-32 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        Who is your target audience?
-                      </label>
-                      <div className="h-24 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                    </div>
-                  </div>
-
-                  {/* Business Goals */}
-                  <div className="space-y-6 pt-6 border-t border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Your Goals</h3>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What do you hope to achieve with your book? *
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded flex items-center px-4">
-                        <span className="text-gray-500 font-lato">Select your primary goal...</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What's your ideal timeline for publishing?
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded flex items-center px-4">
-                        <span className="text-gray-500 font-lato">Select your timeline...</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What's your approximate budget range for this project?
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded flex items-center px-4">
-                        <span className="text-gray-500 font-lato">Select your budget range...</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Additional Information */}
-                  <div className="space-y-6 pt-6 border-t border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Additional Information</h3>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        Have you written a book before?
-                      </label>
-                      <div className="space-y-2">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded-full"></div>
-                          <span className="text-gray-700 font-lato">Yes, I'm a published author</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded-full"></div>
-                          <span className="text-gray-700 font-lato">I've written but not published</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded-full"></div>
-                          <span className="text-gray-700 font-lato">This is my first book</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        What questions do you have about the publishing process?
-                      </label>
-                      <div className="h-24 bg-gray-100 border-2 border-gray-300 rounded"></div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        How did you hear about Red Thread Publishing?
-                      </label>
-                      <div className="h-12 bg-gray-100 border-2 border-gray-300 rounded flex items-center px-4">
-                        <span className="text-gray-500 font-lato">Select source...</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Preferred Contact */}
-                  <div className="space-y-6 pt-6 border-t border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Scheduling Preferences</h3>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        Preferred call time
-                      </label>
-                      <div className="space-y-2">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded"></div>
-                          <span className="text-gray-700 font-lato">Morning (9 AM - 12 PM EST)</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded"></div>
-                          <span className="text-gray-700 font-lato">Afternoon (12 PM - 5 PM EST)</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded"></div>
-                          <span className="text-gray-700 font-lato">Evening (5 PM - 8 PM EST)</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 font-lato">
-                        Preferred days of the week
-                      </label>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                        {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map((day) => (
-                          <div key={day} className="flex items-center space-x-2">
-                            <div className="w-4 h-4 bg-gray-200 border border-gray-400 rounded"></div>
-                            <span className="text-gray-700 font-lato text-sm">{day}</span>
-                          </div>
+                      <div className="flex space-x-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-gray-600 text-gray-600" />
                         ))}
                       </div>
+                      <p className="text-gray-700 font-lato text-sm italic mb-3">
+                        "The strategy call alone was worth hours of research. Sierra immediately identified the gaps in
+                        my approach and gave me a clear path forward."
+                      </p>
+                      <div className="text-sm font-semibold text-gray-900 font-lato">- Jennifer Walsh, CEO</div>
+                    </div>
+                    <div>
+                      <div className="flex space-x-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-gray-600 text-gray-600" />
+                        ))}
+                      </div>
+                      <p className="text-gray-700 font-lato text-sm italic mb-3">
+                        "Even though I decided to wait 6 months before starting, the insights from our call helped me
+                        prepare and ultimately led to a better book."
+                      </p>
+                      <div className="text-sm font-semibold text-gray-900 font-lato">- Marcus Johnson, Consultant</div>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
 
-                  <div className="pt-6">
-                    <Button className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 text-lg font-lato">
-                      Schedule My Free Strategy Call
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                    <p className="text-sm text-gray-500 text-center mt-4 font-lato">
-                      We'll contact you within 24 hours to schedule your call • No spam, ever
-                    </p>
+              {/* Contact Info */}
+              <Card className="border-2 border-gray-300">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-6 font-playfair">Questions?</h3>
+                  <div className="space-y-4 text-gray-600 font-lato">
+                    <div>
+                      <div className="font-semibold text-gray-900">Email</div>
+                      <div>hello@redthreadpublishing.com</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Phone</div>
+                      <div>(555) 123-4567</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">Response Time</div>
+                      <div>Within 24 hours</div>
+                    </div>
                   </div>
-                </form>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Social Proof */}
-      <section className="py-20 bg-white border-t border-gray-200">
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Join 64+ Successful Authors</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Trusted by Successful Entrepreneurs</h2>
             <p className="text-xl text-gray-600 font-lato">
-              See what entrepreneurs are saying about their Red Thread Publishing experience
+              Join hundreds of business leaders who've transformed their expertise into published authority
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="border-2 border-gray-300">
-                <CardContent className="p-8">
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <div key={j} className="w-5 h-5 bg-gray-400 rounded-full mr-1"></div>
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 italic font-lato">
-                    "The strategy call was incredibly valuable. Sierra helped me clarify my book concept and gave me a
-                    clear roadmap for moving forward. Even if I hadn't decided to work with them, the call alone was
-                    worth it."
-                  </p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 border"></div>
-                    <div>
-                      <p className="font-semibold text-gray-900 font-lato">Sarah Johnson</p>
-                      <p className="text-gray-600 text-sm font-lato">CEO, Tech Innovations</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-gray-800 mb-2 font-playfair">200+</div>
+              <div className="text-gray-600 font-lato">Books Published</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-gray-800 mb-2 font-playfair">95%</div>
+              <div className="text-gray-600 font-lato">Client Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-gray-800 mb-2 font-playfair">50+</div>
+              <div className="text-gray-600 font-lato">Award Winners</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600 font-lato">Common questions about our strategy calls</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Common Questions</h2>
+            <p className="text-xl text-gray-600 font-lato">Quick answers to help you prepare for your strategy call</p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            {[
-              {
-                question: "Is the strategy call really free?",
-                answer:
-                  "Yes, absolutely. This is a genuine consultation where we provide value regardless of whether you decide to work with us. There are no hidden fees or obligations.",
-              },
-              {
-                question: "How long is the call?",
-                answer:
-                  "The call typically lasts 30-45 minutes. We want to give you enough time to discuss your goals and get meaningful guidance without overwhelming your schedule.",
-              },
-              {
-                question: "Will you try to sell me during the call?",
-                answer:
-                  "Our focus is on providing value and helping you understand your options. If our services are a good fit, we'll discuss them, but there's no pressure to make any decisions on the call.",
-              },
-              {
-                question: "What if I'm not ready to start immediately?",
-                answer:
-                  "That's perfectly fine. Many of our authors take time to prepare before beginning their publishing journey. We'll provide guidance for your timeline and stay in touch when you're ready.",
-              },
-              {
-                question: "Do you work with authors in all industries?",
-                answer:
-                  "We specialize in working with successful entrepreneurs and business leaders across all industries. Whether you're in tech, healthcare, finance, consulting, or any other field, we can help you share your expertise through publishing.",
-              },
-              {
-                question: "What happens after the strategy call?",
-                answer:
-                  "After the call, we'll send you a summary of what we discussed and any next steps we recommended. If you decide to move forward with us, we'll provide a detailed proposal. If not, you'll still have valuable insights to guide your publishing journey.",
-              },
-            ].map((faq, i) => (
-              <Card key={i} className="border-2 border-gray-300">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">{faq.question}</h3>
-                  <p className="text-gray-600 font-lato">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="max-w-3xl mx-auto space-y-6">
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-gray-900 mb-2 font-playfair">Is there really no obligation?</h3>
+                <p className="text-gray-700 font-lato">
+                  Absolutely none. The strategy call is designed to provide value whether you work with us or not.
+                  You'll receive actionable insights and a clear roadmap for your book project.
+                </p>
+              </CardContent>
+            </Card>
 
-      {/* Final CTA */}
-      <section className="py-20 bg-gray-800 border-t border-gray-700">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl font-bold text-white font-playfair">
-              Ready to Transform Your Expertise Into a Book?
-            </h2>
-            <p className="text-xl text-gray-300 font-lato">
-              Don't let another year pass without sharing your knowledge with the world. Book your free strategy call
-              today and take the first step toward becoming a published thought leader.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-gray-800 hover:bg-gray-100 px-12 py-4 text-lg font-lato"
-                onClick={() => document.querySelector("form")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Schedule My Call Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-gray-800 px-12 py-4 text-lg font-lato bg-transparent"
-                asChild
-              >
-                <Link href="/resources/ebook">
-                  Download Free Guide First
-                  <Clock className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-            <p className="text-gray-400 text-sm font-lato">
-              Free 30-minute consultation • No obligation • Expert guidance guaranteed
-            </p>
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-gray-900 mb-2 font-playfair">
+                  What if I'm not ready to start immediately?
+                </h3>
+                <p className="text-gray-700 font-lato">
+                  That's perfectly fine! Many clients have strategy calls months before they're ready to begin. We'll
+                  help you create a timeline that works for your schedule and goals.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-gray-900 mb-2 font-playfair">Do you work with all industries?</h3>
+                <p className="text-gray-700 font-lato">
+                  We specialize in business and professional development books for entrepreneurs, executives, and
+                  consultants. If you're unsure if your topic fits, the strategy call is the perfect time to discuss it.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

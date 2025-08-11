@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, ExternalLink, Calendar, Play, Award } from "lucide-react"
-import { WireframeNavigation } from "@/components/wireframe-navigation"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function InTheMediaPage() {
   return (
     <div className="min-h-screen bg-white">
-      <WireframeNavigation />
+      <Navigation />
 
       {/* Hero Section */}
       <section className="py-20 bg-gray-50 border-t border-gray-200">

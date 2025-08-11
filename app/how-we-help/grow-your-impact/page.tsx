@@ -1,36 +1,36 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Mic, Users, TrendingUp, Award, Camera, Globe } from "lucide-react"
-import { WireframeNavigation } from "@/components/wireframe-navigation"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, CheckCircle, Star, Mic, Users, TrendingUp, Award, Camera, Zap } from "lucide-react"
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function GrowYourImpactPage() {
   return (
     <div className="min-h-screen bg-white">
-      <WireframeNavigation />
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
-                  Step 3: Grow Your IMPACT
-                </div>
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight font-playfair">
-                  Transform Your Book Into Thought Leadership
-                </h1>
+                <Badge variant="outline" className="border-gray-400 text-gray-700">
+                  Thought Leadership
+                </Badge>
+                <h1 className="text-5xl font-bold text-gray-900 leading-tight font-playfair">Grow Your IMPACT</h1>
                 <p className="text-xl text-gray-600 leading-relaxed font-lato">
-                  Leverage your published work to build a powerful personal brand, secure media opportunities, and
-                  establish yourself as the go-to expert in your field.
+                  Transform your published book into a platform for thought leadership with comprehensive media
+                  training, PR support, and visibility strategies that position you as the go-to expert in your
+                  industry.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato" asChild>
                   <Link href="/get-started">
-                    Amplify Your Impact
+                    Maximize Your Impact
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -46,8 +46,8 @@ export default function GrowYourImpactPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
-                <div className="text-gray-600 font-lato">Impact & Media Image</div>
+              <div className="aspect-video bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
+                <div className="text-gray-600 font-lato">Media Training & Impact Image</div>
               </div>
             </div>
           </div>
@@ -55,286 +55,215 @@ export default function GrowYourImpactPage() {
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-white border-t border-gray-200">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Complete Thought Leadership Program</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">What's Included</h2>
             <p className="text-xl text-gray-600 font-lato">
-              Everything you need to maximize your book's impact and build lasting influence
+              Comprehensive thought leadership development and media positioning
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Mic className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Mic className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">Media Training</h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Interview skills development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Message crafting and delivery</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Podcast appearance coaching</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>TV and radio preparation</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Media Training</h3>
+                <p className="text-gray-600 font-lato">
+                  Professional media training including interview techniques, message development, and on-camera
+                  presence for television, podcast, and digital media appearances.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Globe className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <TrendingUp className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">PR & Media Outreach</h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Press release creation and distribution</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Media kit development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Journalist and producer outreach</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Media opportunity coordination</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">PR Strategy & Outreach</h3>
+                <p className="text-gray-600 font-lato">
+                  Strategic public relations campaigns including media list development, pitch creation, and ongoing
+                  outreach to secure high-value media placements.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Users className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Users className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Speaking Opportunities
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Keynote topic development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Speaker bureau submissions</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Conference and event outreach</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Presentation skills coaching</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Speaking Opportunities</h3>
+                <p className="text-gray-600 font-lato">
+                  Identification and securing of speaking engagements at industry conferences, corporate events, and
+                  thought leadership forums.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <TrendingUp className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Camera className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">
-                  Digital Platform Building
-                </h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>LinkedIn thought leadership strategy</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Content calendar development</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Social media optimization</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Personal website enhancement</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Content Creation</h3>
+                <p className="text-gray-600 font-lato">
+                  Development of thought leadership content including articles, social media strategies, and multimedia
+                  content that reinforces your expert positioning.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Award className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Award className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">Industry Recognition</h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Award submission strategy</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Industry publication outreach</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Thought leadership positioning</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Expert commentary opportunities</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Industry Recognition</h3>
+                <p className="text-gray-600 font-lato">
+                  Strategic positioning for industry awards, recognition programs, and thought leadership rankings to
+                  enhance credibility and visibility.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
-                  <Camera className="h-8 w-8 text-gray-600" />
+                <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mb-6 border">
+                  <Zap className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 text-center font-playfair">Content & Collateral</h3>
-                <ul className="space-y-3 text-gray-600 font-lato">
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Professional headshots and photos</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Speaker one-sheet creation</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Bio and press materials</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-600 mt-0.5 flex-shrink-0" />
-                    <span>Video content development</span>
-                  </li>
-                </ul>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">Digital Presence Optimization</h3>
+                <p className="text-gray-600 font-lato">
+                  Comprehensive optimization of your digital presence including LinkedIn strategy, personal website
+                  enhancement, and social media positioning to amplify your thought leadership reach.
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Impact Timeline */}
+      {/* Timeline */}
       <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Your Impact Growth Timeline</h2>
-            <p className="text-xl text-gray-600 font-lato">Building thought leadership over 6 months</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Your Impact Journey</h2>
+            <p className="text-xl text-gray-600 font-lato">
+              A strategic 6-month program to establish thought leadership
+            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="space-y-8">
-              {[
-                {
-                  month: "Month 1",
-                  title: "Foundation & Training",
-                  description:
-                    "Media training sessions, message development, and creation of all marketing materials and collateral.",
-                },
-                {
-                  month: "Month 2",
-                  title: "Platform Building",
-                  description:
-                    "Digital platform optimization, content strategy implementation, and initial media outreach campaigns.",
-                },
-                {
-                  month: "Months 3-4",
-                  title: "Media & Speaking",
-                  description:
-                    "Securing podcast interviews, media appearances, and speaking opportunities while building momentum.",
-                },
-                {
-                  month: "Months 5-6",
-                  title: "Thought Leadership",
-                  description:
-                    "Established as go-to expert with regular media appearances, speaking engagements, and industry recognition.",
-                },
-              ].map((phase, i) => (
-                <div key={i} className="flex items-start space-x-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 bg-gray-200 rounded-full border-2 border-gray-400 flex items-center justify-center">
-                      <span className="text-sm font-bold text-gray-700 font-lato text-center">{phase.month}</span>
-                    </div>
-                  </div>
-                  <div className="flex-1 pt-2">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 font-playfair">{phase.title}</h3>
-                    <p className="text-gray-600 font-lato">{phase.description}</p>
-                  </div>
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  1
                 </div>
-              ))}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 1-2: Foundation & Training
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Comprehensive media training, message development, and personal brand positioning. Professional
+                    photography and digital presence optimization.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  2
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 3-4: Active Outreach & Placement
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Strategic PR campaigns, media outreach, and securing initial speaking engagements and media
+                    appearances to build momentum.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold">
+                  3
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-playfair">
+                    Months 5-6: Amplification & Recognition
+                  </h3>
+                  <p className="text-gray-600 font-lato">
+                    Scaling visibility through high-profile opportunities, award submissions, and establishing ongoing
+                    thought leadership platforms and partnerships.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Investment Section */}
       <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Grow Your IMPACT Investment</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Investment</h2>
             <p className="text-xl text-gray-600 font-lato">
-              Comprehensive thought leadership program that maximizes your book's impact
+              Comprehensive thought leadership development with media training and PR support
             </p>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <Card className="border-2 border-gray-800 bg-gray-50">
+            <Card className="border-2 border-gray-300 bg-gray-50">
               <CardContent className="p-8 text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-playfair">Grow Your IMPACT Package</h3>
-                <div className="text-5xl font-bold text-gray-800 mb-2 font-playfair">$22,500</div>
-                <div className="text-gray-600 mb-8 font-lato">Complete 6-month thought leadership program</div>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-4xl font-bold text-gray-800 mb-2 font-playfair">$25,000 - $40,000</div>
+                    <div className="text-gray-600 font-lato">Complete Grow Your IMPACT Program</div>
+                  </div>
 
-                <div className="space-y-4 mb-8 text-left">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Comprehensive media training and coaching</span>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">6-Month Program Duration</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">Professional Media Training</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2 border-b border-gray-300">
+                      <span className="font-lato text-gray-700">Strategic PR Campaigns</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
+                    <div className="flex items-center justify-between py-2">
+                      <span className="font-lato text-gray-700">Speaking Opportunity Placement</span>
+                      <CheckCircle className="h-5 w-5 text-gray-600" />
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">PR campaign and media outreach</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Speaking opportunity development</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Digital platform optimization</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-gray-700" />
-                    <span className="text-gray-700 font-lato">Professional content and collateral creation</span>
-                  </div>
-                </div>
 
-                <div className="space-y-4">
-                  <Button size="lg" className="w-full bg-gray-800 hover:bg-gray-900 text-white py-4 font-lato" asChild>
+                  <div className="pt-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-4 bg-white rounded border">
+                        <div className="font-semibold text-gray-800 font-lato">Pay in Full</div>
+                        <div className="text-sm text-gray-600 font-lato">5% discount applied</div>
+                      </div>
+                      <div className="text-center p-4 bg-white rounded border">
+                        <div className="font-semibold text-gray-800 font-lato">3-Month Plan</div>
+                        <div className="text-sm text-gray-600 font-lato">0% interest</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button size="lg" className="w-full bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
                     <Link href="/get-started">
-                      Amplify Your Impact
+                      Start Growing Your Impact
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
-                  <p className="text-sm text-gray-500 font-lato">Payment plans available • Results guaranteed</p>
                 </div>
               </CardContent>
             </Card>
@@ -342,14 +271,155 @@ export default function GrowYourImpactPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* What Authors Say */}
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">What Authors Say</h2>
+            <p className="text-xl text-gray-600 font-lato">
+              Success stories from entrepreneurs who amplified their impact through our program
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "The media training transformed my confidence and message clarity. I've been featured on major
+                  podcasts and my speaking fees increased 300%. The ROI has been incredible."
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Amanda Foster</div>
+                    <div className="text-gray-600 text-sm font-lato">Leadership Consultant</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "From unknown to industry thought leader in 6 months. The PR strategy secured features in Forbes and
+                  Harvard Business Review. My business has grown exponentially."
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Marcus Johnson</div>
+                    <div className="text-gray-600 text-sm font-lato">Fintech Entrepreneur</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
+                  ))}
+                </div>
+                <p className="text-gray-700 font-lato italic mb-6">
+                  "The speaking opportunities alone paid for the program. I now keynote at major conferences and my
+                  consulting pipeline is completely full. Best investment I've made."
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div>
+                    <div className="font-semibold text-gray-900 font-lato">Dr. Patricia Williams</div>
+                    <div className="text-gray-600 text-sm font-lato">Healthcare Executive</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600 font-lato">Common questions about our thought leadership program</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-8">
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  Do I need to have a published book to start this program?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  While having a published book significantly enhances your credibility and provides content for thought
+                  leadership, we can work with established experts who have other forms of published content or
+                  significant industry recognition.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  What types of media opportunities can I expect?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  Opportunities vary by industry and expertise but typically include podcast interviews, industry
+                  publications, conference speaking, webinar hosting, and potential television appearances. We tailor
+                  the strategy to your specific goals and market.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  How do you measure success in this program?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  Success metrics include media placements secured, speaking engagements booked, social media growth,
+                  website traffic increases, and ultimately business impact such as new clients, partnerships, or
+                  revenue growth attributed to thought leadership activities.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-300">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 font-playfair">
+                  What ongoing support is provided after the program?
+                </h3>
+                <p className="text-gray-600 font-lato">
+                  We provide 3 months of ongoing support after program completion, including continued PR outreach,
+                  opportunity identification, and strategic guidance. Extended support packages are available for
+                  long-term thought leadership development.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-20 bg-gray-800 border-t border-gray-700">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl font-bold text-white font-playfair">Ready to Grow Your Impact?</h2>
+            <h2 className="text-4xl font-bold text-white font-playfair">Ready to Amplify Your Impact?</h2>
             <p className="text-xl text-gray-300 font-lato">
-              Transform your published book into a powerful platform for thought leadership and business growth. Book
-              your strategy call to discuss your impact goals.
+              Transform your expertise into thought leadership with our comprehensive media training and PR program.
+              Position yourself as the go-to expert in your industry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -358,7 +428,7 @@ export default function GrowYourImpactPage() {
                 asChild
               >
                 <Link href="/get-started">
-                  Book Your Strategy Call
+                  Start Growing Your Impact
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -368,15 +438,10 @@ export default function GrowYourImpactPage() {
                 className="border-white text-white hover:bg-white hover:text-gray-800 px-12 py-4 text-lg font-lato bg-transparent"
                 asChild
               >
-                <Link href="/pricing/packages">
-                  View All Packages
-                  <Award className="ml-2 h-5 w-5" />
-                </Link>
+                <Link href="/pricing/packages">View All Packages</Link>
               </Button>
             </div>
-            <p className="text-gray-400 text-sm font-lato">
-              Free 30-minute consultation • No obligation • Maximize your influence
-            </p>
+            <p className="text-gray-400 text-sm font-lato">Free consultation • Strategic approach • 6-month program</p>
           </div>
         </div>
       </section>
@@ -423,8 +488,13 @@ export default function GrowYourImpactPage() {
               <h4 className="font-semibold mb-4 font-lato">Resources</h4>
               <ul className="space-y-2 text-gray-400 font-lato">
                 <li>
+                  <Link href="/resources/ebook" className="hover:text-white font-lato">
+                    Free eBook
+                  </Link>
+                </li>
+                <li>
                   <Link href="/resources/webinar-series" className="hover:text-white font-lato">
-                    Free Webinar
+                    Webinar Series
                   </Link>
                 </li>
                 <li>
@@ -433,13 +503,8 @@ export default function GrowYourImpactPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/resources/ebook" className="hover:text-white font-lato">
-                    Publishing Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/our-work/testimonials" className="hover:text-white font-lato">
-                    Success Stories
+                  <Link href="/resources/blog" className="hover:text-white font-lato">
+                    Blog
                   </Link>
                 </li>
               </ul>
@@ -450,7 +515,11 @@ export default function GrowYourImpactPage() {
               <ul className="space-y-2 text-gray-400 font-lato">
                 <li>hello@redthreadpublishing.com</li>
                 <li>(555) 123-4567</li>
-                <li>Book a Strategy Call</li>
+                <li>
+                  <Link href="/get-started" className="hover:text-white font-lato">
+                    Book a Strategy Call
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, ArrowRight, Play, Users, BookOpen } from "lucide-react"
 import Link from "next/link"
-import { WireframeNavigation } from "@/components/wireframe-navigation"
+import { Navigation } from "@/components/navigation"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <WireframeNavigation />
+      <Navigation />
 
       {/* Hero Section */}
       <section className="py-20 bg-gray-50">
@@ -98,7 +98,9 @@ export default function HomePage() {
           <div className="mb-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">Step 1</div>
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Manuscript Development
+                </div>
                 <h3 className="text-3xl font-bold text-gray-900 font-playfair">Write</h3>
                 <p className="text-lg text-gray-600 font-lato">
                   Manuscript development and coaching services for compelling nonfiction books. Our expert team helps
@@ -127,7 +129,9 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="space-y-6 lg:order-2">
-                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">Step 2</div>
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Professional Publishing
+                </div>
                 <h3 className="text-3xl font-bold text-gray-900 font-playfair">Publish</h3>
                 <p className="text-lg text-gray-600 font-lato">
                   Full-service publishing including editing, design, distribution, and award-winning positioning. We
@@ -146,7 +150,9 @@ export default function HomePage() {
           <div>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">Step 3</div>
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Thought Leadership
+                </div>
                 <h3 className="text-3xl font-bold text-gray-900 font-playfair">Impact</h3>
                 <p className="text-lg text-gray-600 font-lato">
                   Media training, PR support, speaking opportunities, and thought leadership visibility strategies.

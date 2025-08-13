@@ -172,15 +172,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-gray-600 font-lato mb-6">Ready to transform your expertise into published authority?</p>
-            <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato" asChild>
-              <Link href="/get-started">
-                Book Your Free Strategy Call
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
+          
         </div>
       </section>
 

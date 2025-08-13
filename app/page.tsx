@@ -84,6 +84,106 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Who We Help Section */}
+      <section className="py-20 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Who We Help</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lato">
+              We specialize in helping successful entrepreneurs and business leaders transform their expertise into
+              published authority
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Column 1: Expertise Without Direction */}
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
+              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
+                <Users className="h-8 w-8 text-gray-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 font-playfair">Established Entrepreneurs</h3>
+              <div className="space-y-4">
+                <p className="text-gray-600 font-lato font-semibold">You have the expertise, but...</p>
+                <ul className="text-gray-600 space-y-2 font-lato text-left">
+                  <li>• Don't know how to structure your knowledge into a book</li>
+                  <li>• Struggle to find time for writing while running your business</li>
+                  <li>• Feel overwhelmed by the publishing process</li>
+                  <li>• Want to establish thought leadership but don't know where to start</li>
+                </ul>
+              </div>
+              <div className="pt-4">
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
+                  <Link href="/how-we-help/write-together">
+                    See How We Help
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Column 2: Time-Constrained Leaders */}
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
+              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
+                <BookOpen className="h-8 w-8 text-gray-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 font-playfair">Busy Business Leaders</h3>
+              <div className="space-y-4">
+                <p className="text-gray-600 font-lato font-semibold">You need to publish, but...</p>
+                <ul className="text-gray-600 space-y-2 font-lato text-left">
+                  <li>• Have limited time to dedicate to writing</li>
+                  <li>• Need professional quality without the learning curve</li>
+                  <li>• Want to maintain focus on your core business</li>
+                  <li>• Require expert guidance through every step</li>
+                </ul>
+              </div>
+              <div className="pt-4">
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
+                  <Link href="/how-we-help/publish-with-confidence">
+                    Explore Full Service
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Column 3: Authority Builders */}
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
+              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
+                <Star className="h-8 w-8 text-gray-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 font-playfair">Aspiring Thought Leaders</h3>
+              <div className="space-y-4">
+                <p className="text-gray-600 font-lato font-semibold">You want maximum impact, but...</p>
+                <ul className="text-gray-600 space-y-2 font-lato text-left">
+                  <li>• Don't know how to leverage your book for speaking opportunities</li>
+                  <li>• Need media training and PR support</li>
+                  <li>• Want to build a platform beyond just publishing</li>
+                  <li>• Seek ongoing visibility and thought leadership positioning</li>
+                </ul>
+              </div>
+              <div className="pt-4">
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
+                  <Link href="/how-we-help/grow-your-impact">
+                    Maximize Impact
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 font-lato mb-6">Ready to transform your expertise into published authority?</p>
+            <Button size="lg" className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 font-lato" asChild>
+              <Link href="/get-started">
+                Book Your Free Strategy Call
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Our Process Section */}
       <section id="process" className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">

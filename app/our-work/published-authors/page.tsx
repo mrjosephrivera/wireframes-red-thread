@@ -1,11 +1,68 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Star, BookOpen, Award, Users, TrendingUp } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Users, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 
 export default function PublishedAuthorsPage() {
+  const authors = [
+    {
+      id: "sarah-mitchell",
+      name: "Dr. Sarah Mitchell",
+      title: "Healthcare Innovation Expert",
+      headshot: "/professional-headshot.png",
+      bio: "Dr. Sarah Mitchell is a leading healthcare innovation expert with over 20 years of experience transforming healthcare systems. She has led digital transformation initiatives at Fortune 500 healthcare companies and now consults for organizations worldwide.",
+      books: ["the-future-of-healthcare-leadership"],
+      achievements: ["Amazon Bestseller", "Industry Award Winner", "MBA Required Reading"],
+    },
+    {
+      id: "marcus-johnson",
+      name: "Marcus Johnson",
+      title: "Tech Entrepreneur",
+      headshot: "/professional-headshot.png",
+      bio: "Marcus Johnson is a serial tech entrepreneur who has founded and scaled three successful startups. His expertise in scaling technology companies has made him a sought-after advisor and keynote speaker at major conferences worldwide.",
+      books: ["scaling-beyond-silicon-valley"],
+      achievements: ["Wall Street Journal Feature", "TEDx Speaker", "Forbes 40 Under 40"],
+    },
+    {
+      id: "jennifer-rodriguez",
+      name: "Jennifer Rodriguez",
+      title: "Financial Services CEO",
+      headshot: "/professional-headshot.png",
+      bio: "Jennifer Rodriguez is the CEO of a leading financial services firm and a champion for women in finance. She has been recognized as one of the most influential women in finance and speaks regularly on leadership and diversity topics.",
+      books: ["women-in-finance-breaking-barriers"],
+      achievements: ["Forbes Feature", "Industry Recognition", "Women in Finance Award"],
+    },
+    {
+      id: "david-chen",
+      name: "David Chen",
+      title: "Manufacturing Executive",
+      headshot: "/professional-headshot.png",
+      bio: "David Chen has over 30 years of experience in manufacturing operations and lean management. His methodologies are now used by Fortune 500 companies and taught in business schools across the country.",
+      books: ["lean-manufacturing-revolution"],
+      achievements: ["Industry Standard", "Corporate Training", "Manufacturing Excellence Award"],
+    },
+    {
+      id: "lisa-thompson",
+      name: "Lisa Thompson",
+      title: "Marketing Strategist",
+      headshot: "/professional-headshot.png",
+      bio: "Lisa Thompson is a digital marketing strategist who has helped hundreds of companies transform their marketing approach. Her innovative strategies have generated millions in revenue for her clients.",
+      books: ["digital-marketing-mastery"],
+      achievements: ["Podcast Circuit", "Speaking Engagements", "Marketing Innovation Award"],
+    },
+    {
+      id: "robert-williams",
+      name: "Robert Williams",
+      title: "Real Estate Mogul",
+      headshot: "/professional-headshot.png",
+      bio: "Robert Williams has built a real estate empire worth over $500 million. He now teaches others how to build wealth through strategic real estate investments and has mentored thousands of investors.",
+      books: ["building-wealth-through-real-estate"],
+      achievements: ["Real Estate Today Feature", "Conference Keynote", "Real Estate Hall of Fame"],
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -85,252 +142,50 @@ export default function PublishedAuthorsPage() {
       <section className="py-20 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Featured Success Stories</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Our Published Authors</h2>
             <p className="text-xl text-gray-600 font-lato">
               Entrepreneurs who leveraged our programs to become published thought leaders
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Dr. Sarah Mitchell</h3>
-                    <p className="text-gray-600 font-lato">Healthcare Innovation Expert</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "The Future of
-                      <br />
-                      Healthcare Leadership"
-                      <br />
-                      Book Cover
-                    </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "Red Thread helped me transform 20 years of healthcare experience into a compelling book that's now
-                    required reading in several MBA programs."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Amazon Bestseller
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Industry Award Winner
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {authors.map((author) => (
+              <Link key={author.id} href={`/authors/${author.id}`}>
+                <Card className="border-2 border-gray-300 hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-8">
+                    <div className="text-center space-y-6">
+                      <div className="w-32 h-32 mx-auto">
+                        <img
+                          src={author.headshot || "/placeholder.svg"}
+                          alt={author.name}
+                          className="w-full h-full object-cover rounded-full border-4 border-gray-200"
+                        />
+                      </div>
 
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Marcus Johnson</h3>
-                    <p className="text-gray-600 font-lato">Tech Entrepreneur</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "Scaling Beyond
-                      <br />
-                      Silicon Valley"
-                      <br />
-                      Book Cover
-                    </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "The comprehensive approach from writing to media training positioned me as a thought leader. I now
-                    keynote major conferences worldwide."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Wall Street Journal Feature
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      TEDx Speaker
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-bold text-gray-900 font-playfair">{author.name}</h3>
+                        <p className="text-gray-600 font-lato font-semibold">{author.title}</p>
+                      </div>
 
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Jennifer Rodriguez</h3>
-                    <p className="text-gray-600 font-lato">Financial Services CEO</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "Women in Finance:
-                      <br />
-                      Breaking Barriers"
-                      <br />
-                      Book Cover
-                    </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "From manuscript to bestseller in 8 months. The publishing and media training opened doors I never
-                    imagined possible."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Forbes Feature
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Industry Recognition
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                      <p className="text-gray-700 font-lato text-sm leading-relaxed">{author.bio}</p>
 
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">David Chen</h3>
-                    <p className="text-gray-600 font-lato">Manufacturing Executive</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "Lean Manufacturing
-                      <br />
-                      Revolution"
-                      <br />
-                      Book Cover
-                    </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "The structured writing process helped me organize 30 years of experience into a practical guide
-                    that's now used by Fortune 500 companies."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Industry Standard
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Corporate Training
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                      <div className="space-y-3">
+                        <div className="text-sm text-gray-600 font-lato font-semibold">Key Achievements:</div>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {author.achievements.map((achievement, index) => (
+                            <Badge key={index} variant="outline" className="text-xs">
+                              {achievement}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
 
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Lisa Thompson</h3>
-                    <p className="text-gray-600 font-lato">Marketing Strategist</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "Digital Marketing
-                      <br />
-                      Mastery"
-                      <br />
-                      Book Cover
+                      <Button className="w-full bg-gray-800 hover:bg-gray-900 font-lato">View Author Profile</Button>
                     </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "The media training component was game-changing. I've been featured on major podcasts and my
-                    consulting rates tripled after publication."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Podcast Circuit
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Speaking Engagements
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-gray-300">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border"></div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 font-playfair">Robert Williams</h3>
-                    <p className="text-gray-600 font-lato">Real Estate Mogul</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="aspect-[3/4] bg-gray-300 rounded border-2 border-gray-400 flex items-center justify-center">
-                    <div className="text-gray-600 font-lato text-center">
-                      "Building Wealth
-                      <br />
-                      Through Real Estate"
-                      <br />
-                      Book Cover
-                    </div>
-                  </div>
-                  <div className="flex space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 font-lato">
-                    "Red Thread's all-in approach took me from idea to published author to recognized expert in just one
-                    year. The ROI has been incredible."
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="text-xs">
-                      Real Estate Today Feature
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      Conference Keynote
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -348,18 +203,19 @@ export default function PublishedAuthorsPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="flex space-x-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
-                  ))}
-                </div>
-                <p className="text-gray-700 font-lato italic mb-6">
+                <p className="text-gray-700 font-lato italic mb-6 text-lg">
                   "Working with Red Thread was the best investment I've made in my business. They didn't just help me
                   write a book – they positioned me as the go-to expert in my industry. My speaking fees increased 400%
                   and I now have a waiting list for my consulting services."
                 </p>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div className="w-16 h-16">
+                    <img
+                      src="/professional-headshot.png"
+                      alt="Amanda Foster"
+                      className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                    />
+                  </div>
                   <div>
                     <div className="font-semibold text-gray-900 font-lato">Amanda Foster</div>
                     <div className="text-gray-600 text-sm font-lato">Business Strategy Consultant</div>
@@ -370,18 +226,19 @@ export default function PublishedAuthorsPage() {
 
             <Card className="border-2 border-gray-300">
               <CardContent className="p-8">
-                <div className="flex space-x-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-gray-600 text-gray-600" />
-                  ))}
-                </div>
-                <p className="text-gray-700 font-lato italic mb-6">
+                <p className="text-gray-700 font-lato italic mb-6 text-lg">
                   "The comprehensive approach from manuscript development to media training was exactly what I needed.
                   My book became a bestseller, and I've been featured in major publications. Red Thread made me a
                   thought leader in my space."
                 </p>
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gray-300 rounded-full border"></div>
+                  <div className="w-16 h-16">
+                    <img
+                      src="/professional-headshot.png"
+                      alt="Michael Torres"
+                      className="w-full h-full object-cover rounded-full border-2 border-gray-200"
+                    />
+                  </div>
                   <div>
                     <div className="font-semibold text-gray-900 font-lato">Michael Torres</div>
                     <div className="text-gray-600 text-sm font-lato">Fintech Entrepreneur</div>
@@ -389,42 +246,6 @@ export default function PublishedAuthorsPage() {
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Served */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Industries We Serve</h2>
-            <p className="text-xl text-gray-600 font-lato">
-              Our authors represent diverse industries and expertise areas
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              "Technology & Software",
-              "Healthcare & Medical",
-              "Financial Services",
-              "Real Estate",
-              "Manufacturing",
-              "Professional Services",
-              "Marketing & Advertising",
-              "Leadership & Management",
-              "Entrepreneurship",
-              "Non-Profit & Social Impact",
-              "Education & Training",
-              "Retail & E-commerce",
-            ].map((industry, index) => (
-              <div key={index} className="text-center p-6 border border-gray-300 rounded-lg">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4 border">
-                  <div className="w-6 h-6 bg-gray-400 rounded"></div>
-                </div>
-                <h3 className="font-semibold text-gray-900 font-lato">{industry}</h3>
-              </div>
-            ))}
           </div>
         </div>
       </section>

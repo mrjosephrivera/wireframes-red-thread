@@ -30,6 +30,31 @@ export function Navigation() {
           <div className="hidden lg:flex items-center space-x-8">
             <NavigationMenu>
               <NavigationMenuList className="space-x-6">
+                {/* Home */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="font-lato text-gray-700 hover:text-gray-800">
+                    Home
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[400px] gap-3 p-6">
+                      <div className="space-y-3">
+                        <NavigationMenuLink asChild>
+                          <Link href="/" className="block p-3 rounded-lg hover:bg-gray-50">
+                            <div className="font-semibold font-lato">Original Home</div>
+                            <div className="text-sm text-gray-600 font-lato">Traditional layout with process steps</div>
+                          </Link>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink asChild>
+                          <Link href="/home-alt" className="block p-3 rounded-lg hover:bg-gray-50">
+                            <div className="font-semibold font-lato">Service-Focused Home</div>
+                            <div className="text-sm text-gray-600 font-lato">Interactive tabbed service overview</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
                 {/* How We Help */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="font-lato text-gray-700 hover:text-gray-800">
@@ -229,6 +254,18 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="space-y-4 pt-4">
+              <div className="space-y-2">
+                <div className="font-semibold font-playfair text-gray-900">Home</div>
+                <div className="pl-4 space-y-2">
+                  <Link href="/" className="block text-gray-600 font-lato">
+                    Original Home
+                  </Link>
+                  <Link href="/home-alt" className="block text-gray-600 font-lato">
+                    Service-Focused Home
+                  </Link>
+                </div>
+              </div>
+
               <div className="space-y-2">
                 <div className="font-semibold font-playfair text-gray-900">How We Help</div>
                 <div className="pl-4 space-y-2">

@@ -40,14 +40,14 @@ export function Navigation() {
                       <div className="space-y-3">
                         <NavigationMenuLink asChild>
                           <Link href="/" className="block p-3 rounded-lg hover:bg-gray-50">
-                            <div className="font-semibold font-lato">Original Home</div>
-                            <div className="text-sm text-gray-600 font-lato">Traditional layout with process steps</div>
+                            <div className="font-semibold font-lato">Tabbed Services</div>
+                            <div className="text-sm text-gray-600 font-lato">Interactive tabbed service overview</div>
                           </Link>
                         </NavigationMenuLink>
                         <NavigationMenuLink asChild>
-                          <Link href="/home-alt" className="block p-3 rounded-lg hover:bg-gray-50">
-                            <div className="font-semibold font-lato">Service-Focused Home</div>
-                            <div className="text-sm text-gray-600 font-lato">Interactive tabbed service overview</div>
+                          <Link href="/service-rows" className="block p-3 rounded-lg hover:bg-gray-50">
+                            <div className="font-semibold font-lato">Service Rows</div>
+                            <div className="text-sm text-gray-600 font-lato">Traditional layout with process steps</div>
                           </Link>
                         </NavigationMenuLink>
                       </div>
@@ -258,10 +258,10 @@ export function Navigation() {
                 <div className="font-semibold font-playfair text-gray-900">Home</div>
                 <div className="pl-4 space-y-2">
                   <Link href="/" className="block text-gray-600 font-lato">
-                    Original Home
+                    Tabbed Services
                   </Link>
-                  <Link href="/home-alt" className="block text-gray-600 font-lato">
-                    Service-Focused Home
+                  <Link href="/service-rows" className="block text-gray-600 font-lato">
+                    Service Rows
                   </Link>
                 </div>
               </div>

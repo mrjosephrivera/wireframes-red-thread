@@ -1,172 +1,19 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import {
-  Star,
-  ArrowRight,
-  Play,
-  Users,
-  BookOpen,
-  CheckCircle,
-  Award,
-  Target,
-  Trophy,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react"
+import { Star, ArrowRight, Play, Users, BookOpen } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 
-export default function HomePage() {
-  const [activeTab, setActiveTab] = useState("write")
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-
-  const tabs = [
-    {
-      id: "write",
-      title: "I Want to Write a Book",
-      icon: <BookOpen className="h-6 w-6" />,
-      content: {
-        headline: "Transform Your Expertise Into a Compelling Manuscript",
-        description:
-          "Our expert manuscript development and coaching services help you structure your ideas, develop your unique voice, and create content that resonates with your target audience.",
-        benefits: [
-          "One-on-one coaching with experienced editors",
-          "Structured approach to organize your expertise",
-          "Professional guidance on voice and tone",
-          "Chapter-by-chapter development support",
-          "Market-focused content strategy",
-        ],
-        cta: {
-          primary: "Start Writing Today",
-          secondary: "Learn More About Our Process",
-          link: "/how-we-help/write-together",
-        },
-      },
-    },
-    {
-      id: "publish",
-      title: "I Need Help Publishing",
-      icon: <Award className="h-6 w-6" />,
-      content: {
-        headline: "Professional Publishing That Gets Results",
-        description:
-          "Full-service publishing including editing, design, distribution, and award-winning positioning. We handle every aspect of bringing your book to market with professional quality.",
-        benefits: [
-          "Professional editing and proofreading",
-          "Award-winning book design and layout",
-          "Multi-platform distribution strategy",
-          "ISBN registration and copyright support",
-          "Marketing and launch strategy",
-        ],
-        cta: {
-          primary: "Explore Publishing Options",
-          secondary: "View Our Published Books",
-          link: "/how-we-help/publish-with-confidence",
-        },
-      },
-    },
-    {
-      id: "seen",
-      title: "I'm Ready to be Seen",
-      icon: <Target className="h-6 w-6" />,
-      content: {
-        headline: "Leverage Your Book for Maximum Impact",
-        description:
-          "Media training, PR support, speaking opportunities, and thought leadership visibility strategies. Transform your published book into a platform for influence and business growth.",
-        benefits: [
-          "Professional media training and interview prep",
-          "PR strategy and press release distribution",
-          "Speaking opportunity identification and booking",
-          "Thought leadership content development",
-          "Social media and digital marketing support",
-        ],
-        cta: {
-          primary: "Maximize Your Impact",
-          secondary: "See Success Stories",
-          link: "/how-we-help/grow-your-impact",
-        },
-      },
-    },
-  ]
-
-  const testimonials = [
-    {
-      id: 1,
-      quote:
-        "Red Thread Publishing transformed my business expertise into a bestselling book that opened doors I never imagined. Sierra and her team are simply exceptional.",
-      author: "Sarah Johnson",
-      title: "CEO, Tech Innovations",
-      avatar: "/professional-woman-headshot.png",
-    },
-    {
-      id: 2,
-      quote:
-        "The entire process was seamless and professional. From manuscript development to marketing strategy, they guided me every step of the way. My book became a powerful business tool.",
-      author: "Michael Chen",
-      title: "Founder, Digital Solutions Inc",
-      avatar: "/professional-man-headshot.png",
-    },
-    {
-      id: 3,
-      quote:
-        "Working with Red Thread Publishing was the best investment I made for my business. The book not only established my authority but also generated significant new revenue streams.",
-      author: "Dr. Amanda Rodriguez",
-      title: "Healthcare Consultant",
-      avatar: "/professional-doctor-woman-headshot.png",
-    },
-    {
-      id: 4,
-      quote:
-        "Sierra's team understood my vision perfectly and helped me create a book that truly represents my expertise. The media training and PR support were invaluable for my thought leadership journey.",
-      author: "James Thompson",
-      title: "Executive Coach",
-      avatar: "/executive-man-headshot.png",
-    },
-    {
-      id: 5,
-      quote:
-        "From the initial consultation to the book launch, every detail was handled with professionalism and care. My book has become a cornerstone of my speaking career.",
-      author: "Lisa Park",
-      title: "Leadership Development Expert",
-      avatar: "/professional-woman-speaker-headshot.png",
-    },
-  ]
-
-  const activeTabContent = tabs.find((tab) => tab.id === activeTab)?.content
-
-  // Auto-slide testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000) // Change every 5 seconds
-
-    return () => clearInterval(timer)
-  }, [testimonials.length])
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
-  const goToTestimonial = (index: number) => {
-    setCurrentTestimonial(index)
-  }
-
+export default function ServiceRowsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <Navigation />
 
-      {/* Hero Section with Overlapping Tabs */}
-      <section className="relative py-20 bg-gray-50">
+      {/* Hero Section */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
@@ -202,13 +49,13 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              <div className="pt-12 pb-12">
-                <p className="text-sm text-gray-500 mb-4 font-lato">Award-winning results:</p>
+              <div className="pt-8">
+                <p className="text-sm text-gray-500 mb-4 font-lato">As seen on:</p>
                 <div className="flex items-center space-x-8">
-                  <Award className="h-12 w-12 text-gray-400" />
-                  <Trophy className="h-12 w-12 text-gray-400" />
-                  <Award className="h-12 w-12 text-gray-400" />
-                  <Trophy className="h-12 w-12 text-gray-400" />
+                  <div className="w-24 h-8 bg-gray-300 rounded"></div>
+                  <div className="w-24 h-8 bg-gray-300 rounded"></div>
+                  <div className="w-24 h-8 bg-gray-300 rounded"></div>
+                  <div className="w-24 h-8 bg-gray-300 rounded"></div>
                 </div>
               </div>
             </div>
@@ -219,90 +66,26 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Overlapping Service Cards */}
-          <div className="relative -mb-32 z-10">
-            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {tabs.map((tab) => (
-                <Card
-                  key={tab.id}
-                  className={`cursor-pointer transition-all duration-300 border-2 shadow-lg hover:shadow-xl ${
-                    activeTab === tab.id
-                      ? "bg-gray-800 border-gray-800 text-white"
-                      : "bg-gray-700 border-gray-700 text-white hover:bg-gray-600"
-                  }`}
-                  onClick={() => setActiveTab(tab.id)}
-                >
-                  <CardContent className="p-8">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="text-white">{tab.icon}</div>
-                        <h3 className="font-bold text-white font-playfair text-lg">{tab.title}</h3>
-                      </div>
-                      <ArrowRight className="h-5 w-5 text-white" />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      {/* Awards Section */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-playfair">Award-Winning Results</h2>
+            <p className="text-gray-600 font-lato">Recognized excellence in publishing and author development</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="w-24 h-16 bg-gray-200 rounded border"></div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Active Tab Content */}
-      {activeTabContent && (
-        <section className="pt-40 pb-20 bg-gray-800 text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
-                <div className="space-y-8">
-                  <div className="space-y-4">
-                    <h3 className="text-3xl font-bold text-white font-playfair">{activeTabContent.headline}</h3>
-                    <p className="text-lg text-gray-300 font-lato">{activeTabContent.description}</p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-semibold text-white font-playfair">What You Get:</h4>
-                    <ul className="space-y-3">
-                      {activeTabContent.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start space-x-3">
-                          <CheckCircle className="h-5 w-5 text-gray-300 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300 font-lato">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-white text-gray-800 hover:bg-gray-100 font-lato" asChild>
-                      <Link href={activeTabContent.cta.link}>
-                        {activeTabContent.cta.primary}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-white text-white hover:bg-white hover:text-gray-800 font-lato bg-transparent"
-                      asChild
-                    >
-                      <Link href="/our-work">{activeTabContent.cta.secondary}</Link>
-                    </Button>
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <div className="aspect-[4/3] bg-gray-700 rounded-2xl border-2 border-gray-600 flex items-center justify-center">
-                    <div className="text-gray-400 font-lato">Service Image</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Who We Help Section */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
+      <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Who We Help</h2>
@@ -314,7 +97,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Column 1: Expertise Without Direction */}
-            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg bg-white">
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
               <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
                 <Users className="h-8 w-8 text-gray-600" />
               </div>
@@ -331,7 +114,7 @@ export default function HomePage() {
             </div>
 
             {/* Column 2: Time-Constrained Leaders */}
-            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg bg-white">
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
               <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
                 <BookOpen className="h-8 w-8 text-gray-600" />
               </div>
@@ -348,7 +131,7 @@ export default function HomePage() {
             </div>
 
             {/* Column 3: Authority Builders */}
-            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg bg-white">
+            <div className="text-center space-y-6 p-8 border-2 border-gray-300 rounded-lg">
               <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto border">
                 <Star className="h-8 w-8 text-gray-600" />
               </div>
@@ -367,7 +150,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
+      {/* Our Process Section */}
+      <section id="process" className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-playfair">Our Proven 3-Step Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-lato">
+              From manuscript to thought leadership, we guide you through every step of your publishing journey
+            </p>
+          </div>
+
+          {/* Step 1: Write */}
+          <div className="mb-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Manuscript Development
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 font-playfair">Write</h3>
+                <p className="text-lg text-gray-600 font-lato">
+                  Manuscript development and coaching services for compelling nonfiction books. Our expert team helps
+                  you structure your ideas, develop your voice, and create content that resonates with your target
+                  audience.
+                </p>
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato">
+                  Start Writing Today
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+              <div className="relative">
+                <div className="aspect-[4/3] bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
+                  <div className="text-gray-600 font-lato">Writing Process Image</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2: Publish */}
+          <div className="mb-20">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative lg:order-1">
+                <div className="aspect-[4/3] bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
+                  <div className="text-gray-600 font-lato">Publishing Process Image</div>
+                </div>
+              </div>
+              <div className="space-y-6 lg:order-2">
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Professional Publishing
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 font-playfair">Publish</h3>
+                <p className="text-lg text-gray-600 font-lato">
+                  Full-service publishing including editing, design, distribution, and award-winning positioning. We
+                  handle every aspect of bringing your book to market with professional quality and strategic
+                  positioning.
+                </p>
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato">
+                  Explore Publishing Options
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 3: Impact */}
+          <div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded border">
+                  Thought Leadership
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 font-playfair">Impact</h3>
+                <p className="text-lg text-gray-600 font-lato">
+                  Media training, PR support, speaking opportunities, and thought leadership visibility strategies.
+                  Transform your published book into a platform for influence and business growth.
+                </p>
+                <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato">
+                  Maximize Your Impact
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+              <div className="relative">
+                <div className="aspect-[4/3] bg-gray-300 rounded-2xl border-2 border-gray-400 flex items-center justify-center">
+                  <div className="text-gray-600 font-lato">Impact & Media Image</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
       <section className="py-20 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -377,96 +249,31 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Carousel Container */}
-          <div className="relative max-w-6xl mx-auto">
-            <div
-              className="overflow-hidden rounded-2xl"
-              onMouseEnter={() => {
-                // Pause auto-slide on hover
-                const timer = setTimeout(() => {}, 0)
-                clearTimeout(timer)
-              }}
-            >
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <Card className="border-2 border-gray-300 bg-white mx-4">
-                      <CardContent className="p-0">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                          {/* Left Column - Author Image */}
-                          <div className="bg-gray-50 p-12 flex items-center justify-center">
-                            <div className="text-center space-y-6">
-                              <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-gray-300">
-                                <img
-                                  src={testimonial.avatar || "/placeholder.svg"}
-                                  alt={testimonial.author}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                              <div>
-                                <h4 className="text-2xl font-bold text-gray-900 font-playfair mb-2">
-                                  {testimonial.author}
-                                </h4>
-                                <p className="text-gray-600 font-lato text-lg">{testimonial.title}</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Right Column - Testimonial Content */}
-                          <div className="p-12 flex flex-col justify-center">
-                            <div className="flex justify-start mb-6">
-                              {[...Array(5)].map((_, j) => (
-                                <Star key={j} className="h-6 w-6 fill-gray-400 text-gray-400" />
-                              ))}
-                            </div>
-                            <blockquote className="text-xl text-gray-700 italic font-lato leading-relaxed">
-                              "{testimonial.quote}"
-                            </blockquote>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <Card key={i} className="border-2 border-gray-300">
+                <CardContent className="p-8">
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="h-5 w-5 fill-gray-400 text-gray-400" />
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border-2 border-gray-300 rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-200"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="h-6 w-6 text-gray-600" />
-            </button>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border-2 border-gray-300 rounded-full p-3 shadow-lg hover:bg-gray-50 transition-colors duration-200"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-6 w-6 text-gray-600" />
-            </button>
-
-            {/* Dot Indicators */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                    index === currentTestimonial ? "bg-gray-800" : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
+                  <p className="text-gray-700 mb-6 italic font-lato">
+                    "Red Thread Publishing transformed my business expertise into a bestselling book that opened doors I
+                    never imagined. Sierra and her team are simply exceptional."
+                  </p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 border"></div>
+                    <div>
+                      <p className="font-semibold text-gray-900 font-lato">Sarah Johnson</p>
+                      <p className="text-gray-600 text-sm font-lato">CEO, Tech Innovations</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-
-          {/* CTA Buttons */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-gray-800 hover:bg-gray-900 text-white font-lato" asChild>
                 <Link href="/our-work/published-authors">
@@ -474,11 +281,7 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                variant="outline"
-                className="border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-lato bg-transparent"
-                asChild
-              >
+              <Button variant="outline" className="border-gray-400 text-gray-700 font-lato bg-transparent" asChild>
                 <Link href="/our-work/testimonials">
                   Read More Testimonials
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -532,15 +335,15 @@ export default function HomePage() {
                 journey, from initial manuscript to award-winning thought leadership positioning.
               </p>
               <div className="grid grid-cols-3 gap-6 pt-6">
-                <div className="text-center p-4 border border-gray-300 rounded bg-white">
+                <div className="text-center p-4 border border-gray-300 rounded">
                   <div className="text-3xl font-bold text-gray-800 font-playfair">64+</div>
                   <div className="text-gray-600 font-lato">Books Published</div>
                 </div>
-                <div className="text-center p-4 border border-gray-300 rounded bg-white">
+                <div className="text-center p-4 border border-gray-300 rounded">
                   <div className="text-3xl font-bold text-gray-800 font-playfair">4.5</div>
                   <div className="text-gray-600 font-lato">Years Experience</div>
                 </div>
-                <div className="text-center p-4 border border-gray-300 rounded bg-white">
+                <div className="text-center p-4 border border-gray-300 rounded">
                   <div className="text-3xl font-bold text-gray-800 font-playfair">100%</div>
                   <div className="text-gray-600 font-lato">Success Rate</div>
                 </div>
@@ -572,7 +375,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-gray-300 bg-white">
+            <Card className="border-2 border-gray-300">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
                   <Play className="h-8 w-8 text-gray-600" />
@@ -585,7 +388,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-gray-300 bg-white">
+            <Card className="border-2 border-gray-300">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
                   <Users className="h-8 w-8 text-gray-600" />
@@ -598,7 +401,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-gray-300 bg-white">
+            <Card className="border-2 border-gray-300">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 border">
                   <BookOpen className="h-8 w-8 text-gray-600" />
